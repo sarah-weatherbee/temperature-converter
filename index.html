@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>temperature converter</title>
-        <link rel="stylesheet" href="./main.css">
 
-    </head>
-    <body>
-        <h2>Temperature converter</h2>
-        <script src="./main.js"></script>
+<head>
+    <title>temperature converter</title>
+    <link rel="stylesheet" href="./main.css">
 
-    </body>
+</head>
+
+<body>
+    <h2>Temperature converter</h2>
+    <input type="text" id="tempInput">
+    <div id="radio-buttons">
+        <input type="radio" id="C" name="Temperature" value="C">
+        <label for="Celcius">C</label>
+        <input type="radio" id="F" name="Temperature" value="F" checked>
+        <label for="Fahrenheit">F</label>
+    </div>
+
+    <div id="tempOutput">
+    </div>
+    <div id="convert-button">
+        <button id="convertBtn">Convert</button>
+    </div>
+
+    <script src="./main.js"></script>
+
+</body>
+
 </html>
