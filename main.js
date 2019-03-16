@@ -4,17 +4,28 @@ const printToDom = (divId, textToPrint) => {
     selectedDiv.innerHTML = textToPrint;
 };
 
+const toCelcius = (temp) => {
+    const finalC =  (temp - 32) * 5/9;
+    domStringBuilder(finalC, "C");
+}
+
+const toFahrenheit = (temp) => {
+   const finalF = (temp * 9/5) + 32;
+   domStringBuilder(finalF, "F");
+ }
+
+const domStringBuilder = (finalTemp, unit) => {
+    const domString = `<h2>${finalTemp} degrees ${unit}</h2>`
+    printToDom("tempOutput", domString);
+}
+
 const determineConverter = (e) => {
     const inputValue = document.getElementById("tempInput").value;
-    console.log(inputValue);
-    let unit = "";
     if (document.getElementById("C").checked) {
-        unit = "C"
+        toCelcius (inputValue) 
     }else {
-        unit = "F"
+        toFahrenheit (inputValue)
     }
-    console.log(unit);
-    printToDom("tempOutput", inputValue);
   }
 
 
