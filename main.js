@@ -52,15 +52,23 @@ const determineConverter = (e) => {
     } 
   }
 
-
+//add keypress event
+//keypress should run determineConverter function
+  //in JavaScript, using the addEventListener() method:
+//object.addEventListener("keypress", myScript);
 
 const buttonEvents = () => {
     document.getElementById('convertBtn').addEventListener('click', determineConverter);
     document.getElementById('clearBtn').addEventListener('click', clear);
 };
 
+const keyPressEvent = () => {
+    document.getElementById('tempInput').addEventListener('keypress', determineConverter);
+};
+
 const init = () => {
     buttonEvents();
+    keyPressEvent();
 };
 
 init();
