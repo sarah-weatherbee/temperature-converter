@@ -22,9 +22,20 @@ const clear = () => {
 }
 
 const domStringBuilder = (finalTemp, unit) => {
-    const domString = `<h2>${finalTemp} degrees ${unit}</h2>`
-    printToDom("tempOutput", domString);
+   // const domString = `<h2>${finalTemp} degrees ${unit}</h2>`
+   // printToDom("tempOutput", domString);
+    if (finalTemp > 90 && unit == "F" || finalTemp > 32 && unit == "C") {
+        let domString = `<h2 class="red">${finalTemp} degrees ${unit}</h2>`
+        printToDom("tempOutput", domString);
+    } else if (finalTemp < 32 && unit == "F" || finalTemp < 0 && unit == "C") {
+        let domString = `<h2 class="blue">${finalTemp} degrees ${unit}</h2>`
+        printToDom("tempOutput", domString);
+    } else if (32 < finalTemp < 90 && unit == "F" || 0 < finalTemp < 32 && unit == "C") {
+        let domString = `<h2 class="green">${finalTemp} degrees ${unit}</h2>`
+        printToDom("tempOutput", domString);
+    }
 }
+
 
 const determineConverter = (e) => {
     let inputValue = document.getElementById("tempInput").value;
@@ -38,9 +49,10 @@ const determineConverter = (e) => {
         }else {
             toFahrenheit (inputValue)
         }
-    }
-    
+    } 
   }
+
+
 
 const buttonEvents = () => {
     document.getElementById('convertBtn').addEventListener('click', determineConverter);
