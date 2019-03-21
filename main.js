@@ -40,7 +40,22 @@ const domStringBuilder = (finalTemp, unit) => {
 const determineConverter = (e) => {
     let inputValue = document.getElementById("tempInput").value;
     if (inputValue.length === 0 || isNaN(Number(inputValue))) {
-        alert("type a number, please")
+        clear()
+    }
+    else {
+        if (e.key === "Enter") {
+        
+            if (document.getElementById("C").checked) {
+                toCelcius (inputValue) 
+            }else {
+                toFahrenheit (inputValue)
+            }
+            }
+        } 
+    }
+const determineConverterClick = (e) => {
+        let inputValue = document.getElementById("tempInput").value;
+        if (inputValue.length === 0 || isNaN(Number(inputValue))) {
         clear()
     }
     else {
@@ -49,8 +64,10 @@ const determineConverter = (e) => {
         }else {
             toFahrenheit (inputValue)
         }
-    } 
-  }
+    }
+}
+
+
 
 //add keypress event
 //keypress should run determineConverter function
@@ -58,7 +75,7 @@ const determineConverter = (e) => {
 //object.addEventListener("keypress", myScript);
 
 const buttonEvents = () => {
-    document.getElementById('convertBtn').addEventListener('click', determineConverter);
+    document.getElementById('convertBtn').addEventListener('click', determineConverterClick);
     document.getElementById('clearBtn').addEventListener('click', clear);
 };
 
